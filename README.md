@@ -35,6 +35,19 @@ Each template is self-contained, opinionated, and production-ready out of the bo
 - **[pytest](https://pytest.org/)** for tests.
 - Containers run as a **non-root user** and are **multi-stage** to keep images small.
 
+## How it fits
+
+```mermaid
+flowchart LR
+  U[You / CI / Agent] --> R[templates]
+  R --> O[Outputs & artifacts]
+  R --> M[MCP / JSON]
+  M --> AI[AI agents]
+  R --> S[Cognis Neural Suite]
+```
+
+**Explore the suite →** [🗂️ all tools](https://github.com/cognis-digital/cognis-neural-suite) · [⭐ awesome-cognis](https://github.com/cognis-digital/awesome-cognis) · [🔗 cognis-sources](https://github.com/cognis-digital/cognis-sources)
+
 ## License
 
 MIT. See [LICENSE](LICENSE).
