@@ -1,34 +1,22 @@
 {
-  "name": "Cognis Python Dev",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
-  },
+  "name": "cognis-${localWorkspaceFolderBasename}",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "features": {
-    "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
+  "postCreateCommand": "bash scripts/setup-ubuntu.sh || pip install -e '.[dev]'",
   "customizations": {
     "vscode": {
       "extensions": [
         "ms-python.python",
+        "ms-python.vscode-pylance",
         "charliermarsh.ruff",
-        "ms-python.mypy-type-checker",
-        "tamasfe.even-better-toml",
-        "github.vscode-github-actions"
-      ],
-      "settings": {
-        "python.defaultInterpreterPath": "/usr/local/bin/python",
-        "editor.formatOnSave": true,
-        "editor.defaultFormatter": "charliermarsh.ruff",
-        "[python]": {
-          "editor.codeActionsOnSave": {
-            "source.organizeImports": "explicit"
-          }
-        }
-      }
+        "GitHub.copilot",
+        "redhat.vscode-yaml"
+      ]
     }
   },
-  "postCreateCommand": "uv pip install --system -e '.[dev]' || pip install -e '.[dev]'",
+  "forwardPorts": [8000],
   "remoteUser": "vscode"
 }
