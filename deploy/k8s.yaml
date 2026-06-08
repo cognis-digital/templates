@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: templates, labels: { app: templates } }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: templates } }
+  template:
+    metadata: { labels: { app: templates } }
+    spec:
+      containers:
+        - name: templates
+          image: ghcr.io/cognis-digital/templates:latest
+          ports: [{ containerPort: 8000 }]
+          resources:
+            requests: { cpu: "50m", memory: "64Mi" }
+            limits: { cpu: "500m", memory: "256Mi" }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: templates }
+spec:
+  selector: { app: templates }
+  ports: [{ port: 80, targetPort: 8000 }]
