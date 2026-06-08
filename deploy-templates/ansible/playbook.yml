@@ -1,0 +1,10 @@
+- hosts: all
+  become: true
+  tasks:
+    - name: Install Docker
+      package: { name: docker.io, state: present }
+    - name: Run app container
+      community.docker.docker_container:
+        name: cognis-app
+        image: ghcr.io/cognis-digital/app:latest
+        ports: ["8000:8000"]

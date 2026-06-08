@@ -1,0 +1,8 @@
+[Unit]
+Description=Cognis app
+After=network.target
+[Service]
+ExecStart=/usr/bin/python3 -m app
+Restart=always
+[Install]
+WantedBy=multi-user.target

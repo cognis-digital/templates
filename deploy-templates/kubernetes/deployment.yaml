@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: cognis-app, labels: { app: cognis-app } }
+spec:
+  replicas: 2
+  selector: { matchLabels: { app: cognis-app } }
+  template:
+    metadata: { labels: { app: cognis-app } }
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/cognis-digital/app:latest
+          ports: [{ containerPort: 8000 }]
+---
+apiVersion: v1
+kind: Service
+metadata: { name: cognis-app }
+spec: { selector: { app: cognis-app }, ports: [{ port: 80, targetPort: 8000 }] }

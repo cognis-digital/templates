@@ -1,0 +1,6 @@
+{
+  "project_name": "My Cognis Tool",
+  "slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+  "author": "Cognis Digital",
+  "license": "COCL-1.0"
+}

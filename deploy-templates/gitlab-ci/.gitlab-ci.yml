@@ -1,0 +1,5 @@
+stages: [test, build]
+test:
+  image: python:3.12
+  stage: test
+  script: [ "pip install -e .[dev]", "pytest -q" ]
