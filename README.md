@@ -4,6 +4,23 @@ Starter templates for Cognis Digital projects. Copy a template, rename it, and s
 
 Each template is self-contained, opinionated, and production-ready out of the box: modern tooling, sensible defaults, no boilerplate to delete.
 
+## Usage — step by step
+
+1. **Get the templates** — clone this repo; each template directory is self-contained:
+   ```bash
+   git clone https://github.com/cognis-digital/templates.git && cd templates
+   ```
+2. **Copy the template** you want into your new project (the table above lists every path, e.g. `python-cli/`, `mcp-server-python/`):
+   ```bash
+   cp -r python-cli/ ~/projects/my-tool && cd ~/projects/my-tool
+   ```
+3. **Rename the placeholders** — search-and-replace `cognis_tool` / `cognis-tool` with your package/project name, then read the template's own `README.md` for next steps.
+4. **Install and run** the copied project (templates use `pyproject.toml`; `uv` preferred, plain `pip` always works):
+   ```bash
+   pip install -e .        # or: uv pip install -e .
+   ```
+5. **Ship with the bundled CI** — the `.github/workflows/ci.yml` template runs ruff, mypy and pytest on push, so the project is gated from the first commit.
+
 ## Index
 
 | Template | Path | What you get |
