@@ -10,6 +10,16 @@ Each template is self-contained, opinionated, and production-ready out of the bo
 This repository is a collection of ready-to-use starting points for building software tools. Instead of spending hours setting up a new project from scratch, you pick a template — like a Python command-line tool or an AI server — copy it, and start writing your actual code right away. Each template already includes testing, linting, and packaging set up the same way across all Cognis Digital projects. It is meant for developers who want a consistent, modern foundation without repeating the same boilerplate every time.
 <!-- cognis:layman:end -->
 
+<!-- cognis:domains:start -->
+## Domains
+
+**Primary domain:** Meta & Suite  ·  **JTF MERIDIAN division:** JTF MERIDIAN COMMAND
+
+**Topics:** `cognis` `meta` `mcp` `agent-security` `cli` `python`
+
+Part of the **Cognis Neural Suite** — 300+ source-available tools organized across 12 domains under the JTF MERIDIAN command structure. See the [suite on GitHub](https://github.com/cognis-digital) and [jtf-meridian](https://github.com/cognis-digital/jtf-meridian) for how the pieces fit together.
+<!-- cognis:domains:end -->
+
 ## Getting started
 
 1. Clone this repository:
