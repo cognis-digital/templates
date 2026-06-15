@@ -20,3 +20,9 @@ for _src in _REPO_ROOT.glob("*/src"):
     _s = str(_src)
     if _s not in sys.path:
         sys.path.insert(0, _s)
+
+# Also make the integrations/ directory importable so webhook tests can use
+# `import webhook` without requiring an install step.
+_integrations = str(_REPO_ROOT / "integrations")
+if _integrations not in sys.path:
+    sys.path.insert(0, _integrations)

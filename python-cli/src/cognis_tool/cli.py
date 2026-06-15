@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from collections.abc import Sequence
 
-from cognis_tool import __version__
-from cognis_tool import commands
+from cognis_tool import __version__, commands
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -46,8 +46,17 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: Sequence[str] | None = None) -> int:
     """Parse arguments and dispatch to the selected command.
 
-    Returns a process exit code.
+    Returns a process exit code.  Unexpected errors are caught and printed to
+    stderr so the caller always gets a clean non-zero exit rather than a raw
+    traceback.
     """
     parser = build_parser()
     args = parser.parse_args(argv)
-    return int(args.func(args))
+    try:
+        return int(args.func(args))
+    except KeyboardInterrupt:
+        print("", file=sys.stderr)  # newline after ^C
+        return 130
+    except Exception as exc:  # noqa: BLE001
+        print(f"error: {exc}", file=sys.stderr)
+        return 1
