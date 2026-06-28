@@ -4,6 +4,33 @@ Starter templates for Cognis Digital projects. Copy a template, rename it, and s
 
 Each template is self-contained, opinionated, and production-ready out of the box: modern tooling, sensible defaults, no boilerplate to delete.
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+  "template": {
+    "name": "example-template",
+    "description": "A simple template for demonstration purposes",
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "author",
+        "type": "string"
+      }
+    ]
+  }
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Get the templates** — clone this repo; each template directory is self-contained:
